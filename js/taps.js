@@ -23,33 +23,14 @@ $(document).ready(function () {
                 var style = entry[i]['gsx$style']['$t'];
                 var abv = entry[i]['gsx$abv']['$t'];
                 var glass = entry[i]['gsx$glass']['$t'];
-
-                $(".main-contain").append("<div class=\"taps\" id=\"tap\"" + tap + "\"><div class=\"text\"><div class=\"brew-title\"><span class=\"beer\">" + beer + "</span> <span class=\"style\">" + style + "</span> </div><div class=\"info\"><span class=\"abv\">" + brewery + "</span> | <span class=\"abv\">" + abv + "% ABV</span></div>  </div> <div class=\"glass\"></div> </div>");
-                $(".glass:nth-child(odd)").append("<img class=\"resize-wide\" src=\"images/" + glass + ".png\">")
-                $(".glass:nth-child(even)").append("<img class=\"resize-wide\" src=\"images/" + glass + "-white.png\">")
-
-
-
-
-
-
-
-
+                if (i % 2 == 0) {
+                    $(".main-contain").append("<div class=\"taps\" id=\"tap" + tap + "\"><div class=\"text\"><div class=\"brew-title\"><span class=\"beer\">" + beer + "</span> <span class=\"style\">" + style + "</span> </div><div class=\"info\"><span class=\"abv\">" + brewery + "</span> | <span class=\"abv\">" + abv + "% ABV</span></div>  </div> <div class=\"glass\"><img class=\"resize-wide\" src=\"images/" + glass + "-white.png\"></div> </div>");
+                } else {
+                    $(".main-contain").append("<div class=\"taps\" id=\"tap" + tap + "\"><div class=\"text\"><div class=\"brew-title\"><span class=\"beer\">" + beer + "</span> <span class=\"style\">" + style + "</span> </div><div class=\"info\"><span class=\"abv\">" + brewery + "</span> | <span class=\"abv\">" + abv + "% ABV</span></div>  </div> <div class=\"glass\"><img class=\"resize-wide\" src=\"images/" + glass + ".png\"></div> </div>");
+                }
             }
-
-
-
         });
 
-    // loading animation
-    var loading = $('.loading');
-    loading.hide();
-    $(document)
-        .ajaxStart(function () {
-            loading.show();
-        })
-        .ajaxStop(function () {
-            loading.hide();
-        });
+
 
 });
